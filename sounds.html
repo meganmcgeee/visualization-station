@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="row-top">
+    <div data-key="81" class="key">
+      <kdb>Q</kdb>
+      <span class="sound">drugs</span>
+    </div>
+    <div data-key="87" class="key">
+      <kdb>W</kdb>
+      <span class="sound">bill didn't</span>
+    </div>
+    <div data-key="69" class="key">
+      <kdb>E</kdb>
+      <span class="sound">bill did</span>
+    </div>
+    <div data-key="82" class="key">
+      <kdb>R</kdb>
+      <span class="sound">hill muslims</span>
+    </div>
+    <div data-key="84" class="key">
+      <kdb>T</kdb>
+      <span class="sound">slab</span>
+    </div>
+        <div data-key="89" class="key">
+      <kdb>Y</kdb>
+      <span class="sound">MJ's bad</span>
+    </div>
+    <div data-key="85" class="key">
+      <kdb>U</kdb>
+      <span class="sound">Hello baby.</span>
+    </div>
+    <div data-key="73" class="key">
+      <kdb>I</kdb>
+      <span class="sound"></span>
+    </div>
+    <div data-key="79" class="key">
+      <kdb>O</kdb>
+      <span class="sound">Pacman</span>
+    </div>
+    <div data-key="80" class="key">
+      <kdb>P</kdb>
+      <span class="sound">Rodney King</span>
+    </div>
+  </div>
+
+  <div class="row-center">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">bass drive</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">bass 56</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">glitch snap</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">glitch bot I</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">glitch bot II</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">glitch zip</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound"> glitch crunch</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">glitch bounce</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tom-tom II</span>
+    </div>
+  </div>
+    <br>
+    <div class="row-bottom">
+      <div data-key="90" class="key">
+        <kbd>Z</kbd>
+        <span class="sound">knife</span>
+      </div>
+      <div data-key="88" class="key">
+        <kbd>X</kbd>
+        <span class="sound">tom-tom I</span>
+      </div>
+      <div data-key="67" class="key">
+        <kbd>C</kbd>
+        <span class="sound">tom tom III </span>
+      </div>
+      <div data-key="86" class="key">
+        <kbd>V</kbd>
+        <span class="sound">fade</span>
+      </div>
+      <div data-key="66" class="key">
+        <kbd>B</kbd>
+        <span class="sound">magnum</span>
+      </div>    
+      <div data-key="78" class="key">
+        <kbd>N</kbd>
+        <span class="sound">magnum</span>
+      </div>
+      <div data-key="77" class="key">
+        <kbd>M</kbd>
+        <span class="sound">magnum</span>
+      </div>
+  </div>
+
+  <audio data-key="81" src="sounds/drugs.wav"></audio>
+  <audio data-key="87" src="sounds/bill_not.wav"></audio>
+  <audio data-key="69" src="sounds/bill_did.wav"></audio>
+  <audio data-key="82" src="sounds/clinton_pay_price.wav"></audio>
+  <audio data-key="84" src="sounds/come_up_to_the_lab.wav"></audio>
+  <audio data-key="89" src="sounds/MJbad.wav"></audio>
+  <audio data-key="85" src="sounds/hello baby.wav"></audio>
+  <audio data-key="73" src="sounds/pacman.wav"></audio>
+  <audio data-key="79" src="sounds/pacman_intro.wav"></audio>
+  <audio data-key="80" src="sounds/rodneyKing.wav"></audio>
+ 
+
+  <audio data-key="65" src="sounds/bass_drive.wav"></audio>
+  <audio data-key="83" src="sounds/bass_56.wav"></audio>
+  <audio data-key="68" src="sounds/glitch_snap.wav"></audio>
+  <audio data-key="70" src="sounds/glitch_bot.wav"></audio>
+  <audio data-key="71" src="sounds/glitch_bot_a.wav"></audio>
+  <audio data-key="72" src="sounds/glitch_zip.wav"></audio>
+  <audio data-key="74" src="sounds/glitch_crunch.wav"></audio>
+  <audio data-key="75" src="sounds/glitch_bounce.wav"></audio>
+  <audio data-key="76" src="sounds/tom_2.wav"></audio>
+  <audio data-key="90" src="sounds/knife_sharpened.wav"></audio>
+  <audio data-key="88" src="sounds/neon_light.wav"></audio>
+  <audio data-key="67" src="sounds/tom_3v.wav"></audio>
+  <audio data-key="67" src="sounds/fade.wav"></audio>
+  <audio data-key="86" src="sounds/magnum.wav"></audio>
+  <audio data-key="66" src="sounds/magnum.wav"></audio>
+  <audio data-key="77" src="sounds/magnum.wav"></audio>
+  <audio data-key="78" src="sounds/magnum.wav"></audio>
+
+<script>
+
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if (!audio) return;
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+  }
+  const keys = Array.from(document.querySelectorAll('.key'));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
+</script>
+
+
+</body>
+</html>
