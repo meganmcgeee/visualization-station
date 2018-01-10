@@ -1,0 +1,28 @@
+.face{
+  max-width: 60%;
+}
+img{
+  height:100%;
+  width:100%;
+}
+
+
+.navigation {
+  padding-top: 10%;
+  text-decoration: none;
+  list-style: none!;
+}
+/*hover*/
+.image_off, #face:hover .image_on{
+   display:none
+}
+.image_on, #face:hover .image_off{
+   display:block
+}
+
+/**/
+#static, #screen {
+  position: absolute;
+  height:250%;
+  width: 100%;
+}
