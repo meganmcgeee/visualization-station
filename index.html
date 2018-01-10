@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body{ background-color: black; }
+    #demo-dragon{ color: white; }
+  </style>
+  <title>G9 </title>
+</head>
+<body>
+  <div id="demo-dragon"></div>
+  <script src='https://cdn.rawgit.com/bijection/g9/master/dist/g9.js'></script>
+  <script>
+        var initialData = {
+            foo: 10,
+            bar: 15,
+            baz: 20,
+            bop: 25,
+            bam: 30,
+        }
+
+        var data = {
+        "squareness": 0.8,
+        "fromX": 705,
+        "fromY": 96,
+        "toX": -220,
+        "toY": 39
+    }
+
+    function render(data, ctx){
+        var lineoptions = {
+            'stroke-width': 1,
+            'stroke-linecap':'round',
+            affects:['squareness']
+        }
+
+        function dragon(x1,y1, x2,y2, dir, level){
+            if(level == 0){
+                ctx.line(x1, y1,x2, y2, lineoptions)
+            } else {
+                var midx = (x1 + x2 + data.squareness*dir*(y2 - y1))/2
+                var midy = (y1 + y2 - data.squareness*dir*(x2 - x1))/2
+
+                dragon(x1,y1, midx,midy, -1,level-1)
+                dragon(midx,midy, x2,y2,  1,level-1)
+            }
+        }
+        
+        dragon = ctx.pure(dragon)
+        
+        dragon(data.fromX, data.fromY, data.toX, data.toY, -1, 9)
+        
+        ctx.point(data.fromX, data.fromY, {r:5})
+        ctx.point(data.toX, data.toY, {r:5})
+    }
+
+    var demo = g9(data, render) 
+      .align('center', 'center')
+      .insertInto('#demo-dragon')
+  </script>
+</body>
+</html>
